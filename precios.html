@@ -6,8 +6,9 @@
 		<link rel="stylesheet" href="estilos.css" />
 		<link href="https://fonts.googleapis.com/css?family=Montserrat|Allerta" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="imagenes/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 	</head>
- 	<body>
+ 	<body class="precios">
 
  		<div class="background">
 			<header id="header" class="header contenedor"> <!--heade-->
@@ -15,8 +16,8 @@
 				<figure class="logotipo"> <!--logotipo-->
 				 <img src="imagenes/invie2x.png" width="186" height="60" alt="INVIE LOGOTIPO" />
 				</figure>
-
-				<nav class="menu">  <!--menu-->
+                <span class="burguer-button icon-menu" id="burguer-button"></span>
+				<nav class="menu" id="menu">  <!--menu-->
 				 <ul>
 				  <li>
 					<a href="index.html">Home</a>
@@ -40,10 +41,16 @@
    						<th>Modelo</th>
    						<th>Precio</th>
    						<th>Descripción</th>
+   						<th>Modelo</th>
+   						<th>Precio</th>
+   						<th>Descripción</th>
    					</tr>
    				</thead>
    				<tbody>
    					<tr>
+   						<td>Invie Classic</td>
+   						<td>$10000</td>
+   						<td>La mejor opción en melodías</td>
    						<td>Invie Classic</td>
    						<td>$10000</td>
    						<td>La mejor opción en melodías</td>
@@ -52,8 +59,14 @@
    						<td>Invie Acústica</td>
    						<td>$100000</td>
    						<td>Para rockear!!!!</td>
+   						<td>Invie Acústica</td>
+   						<td>$100000</td>
+   						<td>Para rockear!!!!</td>
    					</tr>
    					<tr>
+   						<td>Invie Classic</td>
+   						<td>$10000</td>
+   						<td>La mejor opción en melodías</td>
    						<td>Invie Classic</td>
    						<td>$10000</td>
    						<td>La mejor opción en melodías</td>
@@ -111,6 +124,75 @@
 				</form>
 			</div>
    		</footer>
+   		<script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+       <script>
+            var consulta = window.matchMedia('(max-width:800px)');
+            consulta.addListener(mediaQuerie);
+
+            var $burguerButton = document.getElementById('burguer-button');
+            var $menu = document.getElementById('menu');
+
+
+            function toggleMenu(){
+                    $menu.classList.toggle('active');
+                    $burguerButton.classList.toggle('icon-close');
+            }
+
+            function mediaQuerie(){
+
+                if(consulta.matches){
+
+                    $burguerButton.addEventListener('touchstart',toggleMenu);
+
+
+                }
+                else{
+
+                $burguerButton.removeEventListener('touchstart', toggleMenu);
+                }
+            }
+
+            mediaQuerie();
+
+           //lazy loading
+           var bLazy = new Blazy({
+               selector: 'img'
+
+           });
+           
+           
+           function showMenu(){
+                
+                $burguerButton.classList.remove('icon-menu');
+                $burguerButton.classList.add('icon-close');
+                 $menu.classList.add('active');
+                
+           
+        }
+        
+        function hideMenu(){
+                 $burguerButton.classList.remove('icon-close');
+                 $burguerButton.classList.add('icon-menu');
+                 
+                 $menu.classList.remove('active');
+               
+                
+        }
+        
+    
+           //gestos touch
+           
+           var $body = document.body;//se llama directamente porque es único 
+       
+           var gestos = new Hammer($body);
+           gestos.on('swipeleft', hideMenu);
+           gestos.on('swiperight', showMenu);
+        
+
+
+
+       </script>
 
 
  	</body>
