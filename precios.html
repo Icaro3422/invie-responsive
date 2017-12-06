@@ -14,7 +14,7 @@
 			<header id="header" class="header contenedor"> <!--heade-->
 
 				<figure class="logotipo"> <!--logotipo-->
-				 <img src="imagenes/invie2x.png" width="186" height="60" alt="INVIE LOGOTIPO" />
+				 <a href="index.html"><img src="imagenes/invie2x.png" width="186" height="60" alt="INVIE LOGOTIPO" /></a>
 				</figure>
                 <span class="burguer-button icon-menu" id="burguer-button"></span>
 				<nav class="menu" id="menu">  <!--menu-->
@@ -160,35 +160,35 @@
                selector: 'img'
 
            });
-           
-           
+
+
            function showMenu(){
-                
+
                 $burguerButton.classList.remove('icon-menu');
                 $burguerButton.classList.add('icon-close');
                  $menu.classList.add('active');
-                
-           
+
+
         }
-        
+
         function hideMenu(){
                  $burguerButton.classList.remove('icon-close');
                  $burguerButton.classList.add('icon-menu');
-                 
+
                  $menu.classList.remove('active');
-               
-                
+
+
         }
-        
-    
+
+
            //gestos touch
-           
-           var $body = document.body;//se llama directamente porque es único 
-       
+
+           var $body = document.body;//se llama directamente porque es único
+
            var gestos = new Hammer($body);
            gestos.on('swipeleft', hideMenu);
            gestos.on('swiperight', showMenu);
-        
+
 
 
 
