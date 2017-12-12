@@ -7,7 +7,7 @@
    	<link href="https://fonts.googleapis.com/css?family=Montserrat|Allerta" rel="stylesheet">
    	<link rel="shortcut icon" type="image/x-icon" href="imagenes/favicon.ico" />
    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    
+
    	<!--<link rel="stylesheet" media="(max-width: 800px)" href="media-querie.css" />-->
   </head>
 
@@ -50,6 +50,7 @@
 
     	<article class="guitarra"><!--guitarra1-->
 			<img class="right" data-src="imagenes/invie-acustica.png|imagenes/invie-acustica2x.png" alt=" Guitarra Invie Acústica" width="350"/>
+             <!--data-src nos permite hacer el be- lazy para cargar por partes-->
 			<div class="contenedor-guitarra-a">
 				<h3 class="title-b">Invie Acústica</h3>
 				<ol>
@@ -78,7 +79,7 @@
                 <iframe width="673" height="595" src="https://www.youtube.com/embed/R1dW8M4EqYY" frameborder="0" allowfullscreen></iframe>
             </div>
 		</div>
-	
+
    </section>
    <footer class="footer">
    		<div class="contenedor">
@@ -127,7 +128,7 @@
 
 				</form>
 		</div>
-		
+
    </footer>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
@@ -165,35 +166,35 @@
                selector: 'img'
 
            });
-           
-           
+
+
            function showMenu(){
-                
+
                 $burguerButton.classList.remove('icon-menu');
                 $burguerButton.classList.add('icon-close');
                  $menu.classList.add('active');
-                
-           
+
+
         }
-        
+
         function hideMenu(){
                  $burguerButton.classList.remove('icon-close');
                  $burguerButton.classList.add('icon-menu');
-                 
+
                  $menu.classList.remove('active');
-               
-                
+
+
         }
-        
-    
+
+
            //gestos touch
-           
-           var $body = document.body;//se llama directamente porque es único 
-       
+
+           var $body = document.body;//se llama directamente porque es único
+
            var gestos = new Hammer($body);
            gestos.on('swipeleft', hideMenu);
            gestos.on('swiperight', showMenu);
-        
+
 
 
 
